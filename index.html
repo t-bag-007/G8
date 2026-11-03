@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <script>document.documentElement.classList.add('js')</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Studio ! — Salon de coiffure mixte à Paris 11e. Coupes, colorations et soins haut de gamme.">
+  <title>Studio ! — Salon de coiffure Paris</title>
+  <link rel="stylesheet" href="fallback.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Dark mode garanti avant Bootstrap -->
+  <style>html,body{background-color:#0D0C0A;color:#F2EDE5}</style>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Studio<span class="accent">!</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarNav" aria-controls="navbarNav"
+              aria-expanded="false" aria-label="Ouvrir le menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">À propos</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item ms-lg-2"><a class="nav-link btn-nav" href="contact.html">Prendre RDV</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <!-- Image chargée via <img loading="lazy" decoding="async"> → fonctionne en local ET sur serveur -->
+    <img
+      src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?w=1600&q=80"
+      alt=""
+      class="hero-bg"
+      loading="eager"
+      aria-hidden="true"
+    >
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <div class="row">
+        <div class="col-lg-7 col-xl-6">
+          <div class="hero-line reveal">
+            <span class="hero-line-bar"></span>
+            <span class="hero-eyebrow">Salon de coiffure mixte — Paris 11e</span>
+          </div>
+          <h1 class="hero-title reveal">L'art de sublimer<br>chaque cheveu.</h1>
+          <p class="hero-subtitle reveal">
+            Chez Studio&nbsp;!, chaque coupe est une signature.<br>
+            Colorations tendance, soins d'exception, expertise à votre service.
+          </p>
+          <div class="hero-actions reveal">
+            <a href="contact.html" class="btn btn-accent"><span>Réserver une séance</span></a>
+            <a href="services.html" class="btn btn-ghost">Nos services</a>
+          </div>
+          <div class="hero-trust reveal">
+            <span class="hero-trust-item"><i class="bi bi-patch-check-fill"></i>12 ans d'expérience</span>
+            <span class="hero-trust-item"><i class="bi bi-star-fill"></i>98% clients satisfaits</span>
+            <span class="hero-trust-item"><i class="bi bi-people-fill"></i>4 stylistes experts</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <i class="bi bi-chevron-compact-down"></i>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="section-stats" id="stats">
+    <div class="container">
+      <div class="row g-0">
+        <div class="col-6 col-md-3 reveal">
+          <div class="stat-item">
+            <span class="stat-number">12</span>
+            <span class="stat-label">ans d'expérience</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 reveal">
+          <div class="stat-item">
+            <span class="stat-number">4</span>
+            <span class="stat-label">stylistes experts</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 reveal">
+          <div class="stat-item">
+            <span class="stat-number">98%</span>
+            <span class="stat-label">clients satisfaits</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 reveal">
+          <div class="stat-item">
+            <span class="stat-number">6</span>
+            <span class="stat-label">services proposés</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES APERÇU -->
+  <section class="section-services-preview" id="services-preview">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <div class="section-eyebrow">Ce que nous faisons</div>
+        <h2 class="section-title">Nos prestations</h2>
+        <p class="section-subtitle">Du soin le plus doux à la transformation la plus audacieuse.</p>
+      </div>
+      <div class="row g-4 mt-3">
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="service-card">
+            <div class="service-card-icon"><i class="bi bi-scissors"></i></div>
+            <h3 class="service-card-title">Coupe &amp; Coiffage</h3>
+            <p class="service-card-text">Coupe femme, homme ou mixte. Chaque coupe est pensée selon votre morphologie et votre style de vie.</p>
+            <span class="service-card-price">Dès 20€</span>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="service-card">
+            <div class="service-card-icon"><i class="bi bi-palette"></i></div>
+            <h3 class="service-card-title">Coloration &amp; Balayage</h3>
+            <p class="service-card-text">Techniques modernes pour des couleurs lumineuses et naturelles. Balayage californien, ombré hair, couleur pleine.</p>
+            <span class="service-card-price">Dès 70€</span>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="service-card">
+            <div class="service-card-icon"><i class="bi bi-droplet"></i></div>
+            <h3 class="service-card-title">Soins &amp; Traitements</h3>
+            <p class="service-card-text">Kératine, soin profond, masque nutritif. Retrouvez des cheveux soyeux, forts et brillants.</p>
+            <span class="service-card-price">Dès 30€</span>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-5 reveal">
+        <a href="services.html" class="btn btn-accent"><span>Voir tous nos services</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY CARROUSEL -->
+  <section class="section-gallery" id="gallery">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <div class="section-eyebrow">Nos créations</div>
+        <h2 class="section-title">Réalisations du studio</h2>
+        <p class="section-subtitle">Quelques créations de notre équipe.</p>
+      </div>
+      <div id="galleryCarousel" class="carousel slide reveal mt-4" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="0" class="active"></button>
+          <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="1"></button>
+          <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="2"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1400&q=80"
+                 class="d-block w-100 carousel-img" alt="Réalisation coiffure 1">
+          </div>
+          <div class="carousel-item">
+            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1560869713-7d0a29430803?w=1400&q=80"
+                 class="d-block w-100 carousel-img" alt="Réalisation coiffure 2">
+          </div>
+          <div class="carousel-item">
+            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1519500528352-2d1460418d41?w=1400&q=80"
+                 class="d-block w-100 carousel-img" alt="Réalisation coiffure 3">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="section-why" id="why">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <div class="section-eyebrow">Notre différence</div>
+        <h2 class="section-title">Pourquoi Studio&nbsp;?</h2>
+      </div>
+      <div class="row g-4 mt-3">
+        <div class="col-md-4 reveal">
+          <div class="why-item">
+            <div class="why-icon-wrap"><i class="bi bi-award why-icon"></i></div>
+            <h4>Expertise reconnue</h4>
+            <p>12 ans de pratique, formations continues et passion sincère pour la coiffure de précision.</p>
+          </div>
+        </div>
+        <div class="col-md-4 reveal">
+          <div class="why-item">
+            <div class="why-icon-wrap"><i class="bi bi-heart why-icon"></i></div>
+            <h4>Approche personnalisée</h4>
+            <p>Chaque client repart avec une coupe pensée pour lui, pas un modèle catalogue appliqué sans réflexion.</p>
+          </div>
+        </div>
+        <div class="col-md-4 reveal">
+          <div class="why-item">
+            <div class="why-icon-wrap"><i class="bi bi-leaf why-icon"></i></div>
+            <h4>Produits sélectionnés</h4>
+            <p>Nous travaillons exclusivement avec des produits professionnels respectueux du cheveu.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-cta">
+    <div class="container">
+      <div class="cta-inner text-center reveal">
+        <div class="section-eyebrow mb-3">Prêt(e) pour une nouvelle tête ?</div>
+        <h2 class="cta-title">Réservez votre séance chez Studio&nbsp;!</h2>
+        <p class="cta-subtitle">Prenez rendez-vous en ligne ou appelez-nous directement.</p>
+        <div class="cta-actions">
+          <a href="contact.html" class="btn btn-accent btn-lg"><span>Réserver maintenant</span></a>
+          <a href="tel:0123456789" class="btn btn-ghost btn-lg">
+            <i class="bi bi-telephone me-2"></i>01 23 45 67 89
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <p class="footer-brand">Studio<span class="accent">!</span></p>
+          <p class="footer-desc">Salon de coiffure mixte au cœur de Paris. L'excellence capillaire, sans compromis.</p>
+        </div>
+        <div class="col-md-2 col-6">
+          <h5 class="footer-heading">Navigation</h5>
+          <ul class="footer-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="about.html">À propos</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 col-6">
+          <h5 class="footer-heading">Horaires</h5>
+          <ul class="footer-links">
+            <li>Mardi – Vendredi : 9h–19h</li>
+            <li>Samedi : 9h–18h</li>
+            <li>Dimanche &amp; Lundi : Fermé</li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5 class="footer-heading">Nous trouver</h5>
+          <ul class="footer-links">
+            <li><i class="bi bi-geo-alt"></i>12 rue des Artisans, 75011 Paris</li>
+            <li><i class="bi bi-telephone"></i>01 23 45 67 89</li>
+            <li><i class="bi bi-envelope"></i>contact@studio-coiffure.fr</li>
+          </ul>
+        </div>
+      </div>
+      <hr class="footer-divider">
+      <div class="footer-bottom">
+        <p>&copy; 2024 Studio ! — Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CHATBOT -->
+  <div id="chat-toggle" class="chat-fab" title="Parler à Léa">
+    <i class="bi bi-chat-heart-fill"></i>
+  </div>
+  <div id="chat-window" class="chat-window hidden">
+    <div class="chat-header">
+      <div class="chat-header-info">
+        <div class="chat-avatar">L</div>
+        <div>
+          <strong>Léa</strong>
+          <span class="chat-status">En ligne</span>
+        </div>
+      </div>
+      <button id="chat-close" class="chat-close-btn" aria-label="Fermer">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+    <div id="chat-messages" class="chat-messages"></div>
+    <div class="chat-input-area">
+      <input type="text" id="chat-input" placeholder="Posez votre question…" autocomplete="off">
+      <button id="chat-send" aria-label="Envoyer"><i class="bi bi-send-fill"></i></button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

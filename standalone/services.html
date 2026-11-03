@@ -1,0 +1,2312 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <script>document.documentElement.classList.add('js')</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Services et tarifs du salon Studio ! — Coupes, colorations, soins, chignons.">
+  <title>Services &amp; Tarifs — Studio !</title>
+
+  <style>
+/* ============================================================
+   STUDIO ! — Couche de secours "Bootstrap-lite"
+   Chargée AVANT Bootstrap : si le CDN est bloqué / hors-ligne,
+   la grille, la navbar et le carrousel fonctionnent quand même.
+   Si Bootstrap se charge, il prend simplement le dessus.
+   ============================================================ */
+:root { --bs-gutter-x: 1.5rem; --bs-gutter-y: 0; }
+
+/* Conteneur */
+.container { width: 100%; margin-right: auto; margin-left: auto;
+  padding-right: calc(var(--bs-gutter-x) * .5); padding-left: calc(var(--bs-gutter-x) * .5); }
+@media (min-width: 576px)  { .container { max-width: 540px; } }
+@media (min-width: 768px)  { .container { max-width: 720px; } }
+@media (min-width: 992px)  { .container { max-width: 960px; } }
+@media (min-width: 1200px) { .container { max-width: 1140px; } }
+@media (min-width: 1400px) { .container { max-width: 1320px; } }
+
+/* Grille */
+.row { display: flex; flex-wrap: wrap;
+  margin-top: calc(-1 * var(--bs-gutter-y));
+  margin-right: calc(-.5 * var(--bs-gutter-x)); margin-left: calc(-.5 * var(--bs-gutter-x)); }
+.row > * { flex-shrink: 0; width: 100%; max-width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * .5); padding-left: calc(var(--bs-gutter-x) * .5);
+  margin-top: var(--bs-gutter-y); }
+.g-0 { --bs-gutter-x: 0; --bs-gutter-y: 0; }
+.g-3 { --bs-gutter-x: 1rem; --bs-gutter-y: 1rem; }
+.g-4 { --bs-gutter-x: 1.5rem; --bs-gutter-y: 1.5rem; }
+.g-5 { --bs-gutter-x: 3rem; --bs-gutter-y: 3rem; }
+.col-12 { flex: 0 0 auto; width: 100%; }
+.col-6  { flex: 0 0 auto; width: 50%; }
+@media (min-width: 576px) { .col-sm-6 { flex: 0 0 auto; width: 50%; } }
+@media (min-width: 768px) {
+  .col-md-2 { flex: 0 0 auto; width: 16.66666667%; }
+  .col-md-3 { flex: 0 0 auto; width: 25%; }
+  .col-md-4 { flex: 0 0 auto; width: 33.33333333%; }
+  .col-md-6 { flex: 0 0 auto; width: 50%; }
+}
+@media (min-width: 992px) {
+  .col-lg-3 { flex: 0 0 auto; width: 25%; }
+  .col-lg-4 { flex: 0 0 auto; width: 33.33333333%; }
+  .col-lg-5 { flex: 0 0 auto; width: 41.66666667%; }
+  .col-lg-6 { flex: 0 0 auto; width: 50%; }
+  .col-lg-7 { flex: 0 0 auto; width: 58.33333333%; }
+}
+@media (min-width: 1200px) { .col-xl-6 { flex: 0 0 auto; width: 50%; } }
+
+/* Utilitaires */
+.d-block { display: block !important; }
+.w-100 { width: 100% !important; }
+.text-center { text-align: center !important; }
+.img-fluid { max-width: 100%; height: auto; }
+.align-items-center { align-items: center !important; }
+.align-items-start { align-items: flex-start !important; }
+.justify-content-center { justify-content: center !important; }
+.mt-2 { margin-top: .5rem !important; } .mt-3 { margin-top: 1rem !important; }
+.mt-4 { margin-top: 1.5rem !important; } .mt-5 { margin-top: 3rem !important; }
+.mb-3 { margin-bottom: 1rem !important; } .mb-4 { margin-bottom: 1.5rem !important; }
+.me-2 { margin-right: .5rem !important; } .ms-3 { margin-left: 1rem !important; }
+.ms-auto { margin-left: auto !important; }
+@media (min-width: 992px) {
+  .align-items-lg-center { align-items: center !important; }
+  .ms-lg-2 { margin-left: .5rem !important; }
+  .gap-lg-1 { gap: .25rem !important; } .gap-lg-2 { gap: .5rem !important; }
+}
+
+/* Boutons / formulaires / divers */
+.btn { display: inline-block; padding: .375rem .75rem; font-size: 1rem; line-height: 1.5;
+  text-align: center; text-decoration: none; vertical-align: middle; cursor: pointer;
+  user-select: none; border: 1px solid transparent; background: transparent; }
+.btn-lg { padding: .5rem 1rem; font-size: 1.25rem; }
+.btn-sm { padding: .25rem .5rem; font-size: .875rem; }
+button, input, select, textarea { font-family: inherit; font-size: inherit; line-height: inherit; }
+hr { border: 0; border-top: 1px solid; height: 0; }
+.fixed-top { position: fixed; top: 0; right: 0; left: 0; z-index: 1030; }
+
+/* Navbar */
+.navbar { position: relative; display: flex; flex-wrap: wrap; align-items: center;
+  justify-content: space-between; padding: .5rem 0; }
+.navbar > .container { display: flex; flex-wrap: inherit; align-items: center; justify-content: space-between; }
+.navbar-brand { display: inline-block; margin-right: 1rem; white-space: nowrap; text-decoration: none; }
+.navbar-nav { display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; }
+.nav-link { display: block; text-decoration: none; }
+.navbar-toggler { background: transparent; cursor: pointer; line-height: 1; }
+.navbar-toggler-icon { display: inline-block; width: 1.5em; height: 1.5em; vertical-align: middle;
+  background-repeat: no-repeat; background-position: center; background-size: 100%; }
+.navbar-collapse { flex-basis: 100%; flex-grow: 1; align-items: center; }
+.collapse:not(.show) { display: none; }
+@media (min-width: 992px) {
+  .navbar-expand-lg { flex-wrap: nowrap; justify-content: flex-start; }
+  .navbar-expand-lg .navbar-nav { flex-direction: row; }
+  .navbar-expand-lg .navbar-toggler { display: none; }
+  .navbar-expand-lg .navbar-collapse { display: flex !important; flex-basis: auto; }
+}
+
+/* Carrousel */
+.carousel { position: relative; }
+.carousel-inner { position: relative; width: 100%; overflow: hidden; }
+.carousel-item { display: none; position: relative; width: 100%; }
+.carousel-item.active { display: block; }
+.no-bs .carousel-item.active { animation: fallbackFade .6s ease both; }
+@keyframes fallbackFade { from { opacity: 0; } to { opacity: 1; } }
+.carousel-control-prev, .carousel-control-next { position: absolute; top: 0; bottom: 0; z-index: 2;
+  display: flex; align-items: center; justify-content: center; width: 15%; padding: 0;
+  color: #fff; background: none; border: 0; opacity: .6; cursor: pointer; }
+.carousel-control-prev:hover, .carousel-control-next:hover { opacity: 1; }
+.carousel-control-prev { left: 0; } .carousel-control-next { right: 0; }
+.carousel-control-prev-icon, .carousel-control-next-icon { display: inline-block; width: 2rem; height: 2rem;
+  background: no-repeat 50% / 100% 100%; }
+.carousel-control-prev-icon { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e"); }
+.carousel-control-next-icon { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e"); }
+.carousel-indicators { position: absolute; right: 0; bottom: 0; left: 0; z-index: 3; display: flex;
+  justify-content: center; margin: 0 15% 1rem; padding: 0; list-style: none; }
+.carousel-indicators [data-bs-target] { flex: 0 1 auto; width: 30px; height: 3px; margin: 0 3px;
+  padding: 0; cursor: pointer; background: #fff; border: 0; opacity: .5; }
+.carousel-indicators .active { opacity: 1; }
+
+</style>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Dark mode garanti avant Bootstrap -->
+  <style>html,body{background-color:#0D0C0A;color:#F2EDE5}</style>
+  <style>
+/* ============================================================
+   STUDIO ! — Feuille de style principale v3.0 — Redesign premium
+   ============================================================ */
+
+/* ============================================================
+   1. VARIABLES CSS
+   ============================================================ */
+:root {
+  --bg:          #0D0C0A;
+  --bg-2:        #141210;
+  --surface:     #1A1714;
+  --surface-2:   #221F1B;
+  --surface-3:   #2A2621;
+  --gold:        #C9A96E;
+  --gold-light:  #E2C896;
+  --gold-dark:   #9A7A45;
+  --gold-glow:   rgba(201, 169, 110, 0.18);
+  --gold-subtle: rgba(201, 169, 110, 0.08);
+  --text:        #F2EDE5;
+  --text-muted:  #7A7268;
+  --text-soft:   #B0A898;
+  --border:      rgba(201, 169, 110, 0.15);
+  --border-soft: rgba(255,255,255,0.05);
+  --error:       #D95F5F;
+  --success:     #5BAF82;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+
+  --ease:        cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ease-out:    cubic-bezier(0, 0, 0.3, 1);
+  --t:           0.3s;
+  --r:           8px;
+  --r-lg:        16px;
+  --r-xl:        24px;
+  --shadow-sm:   0 2px 12px rgba(0,0,0,0.3);
+  --shadow:      0 8px 40px rgba(0,0,0,0.5);
+  --shadow-gold: 0 4px 24px rgba(201, 169, 110, 0.25);
+}
+
+/* ============================================================
+   2. RESET & BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; background-color: #0D0C0A; overflow-x: hidden; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+body {
+  background-color: #0D0C0A !important;
+  background-color: var(--bg) !important;
+  color: #F2EDE5 !important;
+  color: var(--text) !important;
+  font-family: var(--font-body);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Forcer le dark sur tous les containers Bootstrap */
+.container, .container-fluid, .row, section, footer, nav {
+  background-color: transparent;
+}
+
+/* Marges de base identiques avec ou sans Bootstrap */
+p { margin-bottom: 1rem; }
+h1, h2, h3, h4, h5, h6 { margin-bottom: 0.5rem; }
+ul, ol { padding-left: 2rem; }
+body { overflow-wrap: break-word; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+/* Bootstrap overrides */
+.text-muted { color: var(--text-muted) !important; }
+p { color: inherit; }
+strong { color: var(--text); }
+
+img, svg, video { max-width: 100%; }
+img { display: block; }
+a { color: var(--gold); text-decoration: none; transition: color var(--t) var(--ease); }
+a:hover { color: var(--gold-light); }
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--text);
+}
+
+/* ============================================================
+   3. NAVBAR
+   ============================================================ */
+#mainNav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 900;
+  padding: 1.4rem 0;
+  transition: all 0.4s var(--ease);
+  background: transparent;
+}
+
+#mainNav.scrolled {
+  background: rgba(13, 12, 10, 0.92);
+  padding: 0.8rem 0;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar-brand {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--text) !important;
+  letter-spacing: -0.02em;
+}
+.navbar-brand .accent { color: var(--gold); }
+
+.navbar-toggler {
+  border: 1px solid var(--border);
+  padding: 0.45rem 0.65rem;
+  border-radius: var(--r);
+}
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28242,237,229,0.9%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.nav-link {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: rgba(242, 237, 229, 0.7) !important;
+  letter-spacing: 0.04em;
+  padding: 0.4rem 0.9rem !important;
+  transition: color var(--t);
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0.9rem; right: 0.9rem;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform var(--t) var(--ease);
+  transform-origin: left;
+}
+.nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
+.nav-link:hover, .nav-link.active { color: var(--text) !important; }
+
+.btn-nav {
+  background: var(--gold) !important;
+  color: #0D0C0A !important;
+  border-radius: var(--r) !important;
+  padding: 0.5rem 1.2rem !important;
+  font-weight: 600 !important;
+  font-size: 0.85rem !important;
+  letter-spacing: 0.04em !important;
+  transition: all var(--t) !important;
+}
+.btn-nav::after { display: none !important; }
+.nav-link.btn-nav, .nav-link.btn-nav.active, .nav-link.btn-nav:hover { color: #0D0C0A !important; }
+.btn-nav:hover {
+  background: var(--gold-light) !important;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-gold) !important;
+}
+
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background: rgba(13, 12, 10, 0.97);
+    margin-top: 1rem;
+    padding: 1.2rem;
+    border-radius: var(--r-lg);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(20px);
+  }
+}
+
+/* ============================================================
+   4. HERO — IMAGE EN <img> POUR ÉVITER LE BLOCAGE file://
+   ============================================================ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Image de fond via <img> absolu (charge en local ET sur serveur) */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  z-index: 0;
+  transform: scale(1.04);
+  transition: transform 8s ease-out;
+}
+.hero:hover .hero-bg { transform: scale(1); }
+
+/* Overlay multicouche */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(to right, rgba(5,4,3,0.90) 0%, rgba(5,4,3,0.55) 55%, rgba(5,4,3,0.15) 100%),
+    linear-gradient(to top, rgba(5,4,3,0.6) 0%, transparent 50%);
+}
+
+/* Grain subtil */
+.hero-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding-top: 8rem;
+  padding-bottom: 5rem;
+}
+
+/* Ligne décorative */
+.hero-line {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+.hero-line-bar {
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+.hero-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6.5vw, 5.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  margin-bottom: 1.75rem;
+  color: var(--text);
+  /* Léger dégradé sur le texte */
+  background: linear-gradient(135deg, #FFFFFF 0%, var(--gold-light) 60%, var(--gold) 100%);
+}
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .hero-title {
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.hero-subtitle {
+  font-size: 1.05rem;
+  color: rgba(242, 237, 229, 0.65);
+  max-width: 430px;
+  margin-bottom: 2.75rem;
+  line-height: 1.85;
+  font-weight: 300;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Badges de confiance */
+.hero-trust {
+  margin-top: 3.5rem;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.hero-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(242, 237, 229, 0.45);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+.hero-trust-item i { color: var(--gold); font-size: 0.9rem; }
+
+/* Scroll indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  color: rgba(242, 237, 229, 0.3);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.scroll-indicator i {
+  font-size: 1.2rem;
+  color: var(--gold);
+  animation: scrollBounce 2.5s infinite var(--ease);
+}
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50%       { transform: translateY(6px); opacity: 1; }
+}
+
+/* ============================================================
+   5. PAGE HERO (pages intérieures)
+   ============================================================ */
+.page-hero {
+  position: relative;
+  padding-top: 7rem;
+  padding-bottom: 4rem;
+  min-height: 38vh;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+.page-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(to top, rgba(5,4,3,0.92) 0%, rgba(5,4,3,0.5) 100%);
+}
+.page-hero-content { position: relative; z-index: 2; }
+.page-hero-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+.page-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* ============================================================
+   6. BOUTONS
+   ============================================================ */
+.btn-accent {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+  color: #0D0C0A;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--r);
+  padding: 0.8rem 2rem;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  letter-spacing: 0.05em;
+  transition: all var(--t) var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+.btn-accent::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+  opacity: 0;
+  transition: opacity var(--t);
+}
+.btn-accent:hover { color: #0D0C0A; transform: translateY(-2px); box-shadow: var(--shadow-gold); }
+.btn-accent:hover::before { opacity: 1; }
+.btn-accent span, .btn-accent i { position: relative; z-index: 1; }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(242, 237, 229, 0.25);
+  border-radius: var(--r);
+  padding: 0.8rem 2rem;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  transition: all var(--t);
+}
+.btn-ghost:hover {
+  color: var(--text);
+  border-color: rgba(242, 237, 229, 0.6);
+  background: rgba(255,255,255,0.04);
+}
+
+.btn-outline-light {
+  border-color: rgba(242, 237, 229, 0.3);
+  color: var(--text);
+  transition: all var(--t);
+}
+.btn-outline-light:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(242, 237, 229, 0.6);
+  color: var(--text);
+}
+
+/* ============================================================
+   7. SECTIONS — UTILITAIRES
+   ============================================================ */
+.section-header { margin-bottom: 1rem; }
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+.section-eyebrow::before, .section-eyebrow::after {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 3vw, 2.75rem);
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.65rem;
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+  font-size: 1rem;
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+/* Espacement */
+.section-stats,
+.section-services-preview,
+.section-gallery,
+.section-why,
+.section-story,
+.section-team,
+.section-values,
+.section-services-full,
+.section-contact { padding: 6rem 0; }
+
+/* ============================================================
+   8. STATS — Bande chiffres
+   ============================================================ */
+.section-stats {
+  background: var(--surface);
+  padding: 3.5rem 0;
+  border-top: 1px solid var(--border-soft);
+  border-bottom: 1px solid var(--border-soft);
+  position: relative;
+  overflow: hidden;
+}
+.section-stats::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: min(600px, 90%); height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  position: relative;
+}
+.stat-item::after {
+  content: '';
+  position: absolute;
+  right: 0; top: 15%; bottom: 15%;
+  width: 1px;
+  background: var(--border);
+}
+.row > :last-child .stat-item::after { display: none; }
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .stat-number {
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+.stat-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ============================================================
+   9. CARDS SERVICES (aperçu accueil)
+   ============================================================ */
+.section-services-preview { background: var(--bg-2); }
+
+.service-card {
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--r-xl);
+  padding: 2.25rem 1.75rem;
+  height: 100%;
+  transition: all 0.4s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--gold-dark), var(--gold-light));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease-out);
+}
+.service-card:hover {
+  border-color: var(--border);
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.4), 0 0 0 1px var(--border);
+}
+.service-card:hover::before { transform: scaleX(1); }
+
+.service-card-icon {
+  width: 52px;
+  height: 52px;
+  background: var(--gold-subtle);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: var(--gold);
+  margin-bottom: 1.25rem;
+  transition: all var(--t);
+}
+.service-card:hover .service-card-icon {
+  background: var(--gold-glow);
+  border-color: var(--gold);
+}
+.service-card-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+}
+.service-card-text {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+}
+.service-card-price {
+  display: inline-block;
+  font-weight: 600;
+  color: var(--gold);
+  font-size: 0.95rem;
+  padding: 0.3rem 0.75rem;
+  background: var(--gold-subtle);
+  border-radius: 20px;
+  border: 1px solid var(--border);
+}
+
+/* ============================================================
+   10. GALLERY / CARROUSEL
+   ============================================================ */
+.section-gallery { background: var(--bg); }
+
+.carousel-img {
+  height: 520px;
+  object-fit: cover;
+  border-radius: var(--r-xl);
+  filter: brightness(0.88) saturate(0.9);
+}
+@media (max-width: 768px) { .carousel-img { height: 300px; } }
+
+.carousel-indicators [data-bs-target] {
+  width: 24px; height: 3px;
+  border-radius: 2px;
+  background: rgba(255,255,255,0.3);
+  border: none;
+}
+.carousel-indicators .active { background: var(--gold); width: 40px; }
+
+/* ============================================================
+   11. WHY SECTION
+   ============================================================ */
+.section-why {
+  background: var(--surface);
+  position: relative;
+}
+.section-why::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(201,169,110,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.why-item {
+  text-align: center;
+  padding: 2.5rem 2rem;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--r-xl);
+  background: var(--surface-2);
+  transition: all 0.4s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+.why-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--gold-dark), var(--gold-light));
+  transform: scaleX(0);
+  transition: transform 0.4s var(--ease-out);
+}
+.why-item:hover {
+  border-color: var(--border);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+}
+.why-item:hover::after { transform: scaleX(1); }
+
+.why-icon-wrap {
+  width: 64px;
+  height: 64px;
+  background: var(--gold-subtle);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  transition: all var(--t);
+}
+.why-item:hover .why-icon-wrap { background: var(--gold-glow); border-color: var(--gold); }
+.why-icon { font-size: 1.6rem; color: var(--gold); }
+.why-item h4 {
+  font-family: var(--font-display);
+  margin-bottom: 0.75rem;
+  font-size: 1.15rem;
+}
+.why-item p { color: var(--text-muted); font-size: 0.9rem; margin: 0; }
+
+/* ============================================================
+   12. CTA SECTION
+   ============================================================ */
+.section-cta {
+  padding: 6rem 0;
+  background: var(--bg-2);
+  position: relative;
+  overflow: hidden;
+}
+.section-cta::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px; height: 400px;
+  background: radial-gradient(ellipse, rgba(201,169,110,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cta-inner {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: 4rem 3rem;
+  position: relative;
+  overflow: hidden;
+}
+.cta-inner::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+.cta-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  margin-bottom: 0.75rem;
+}
+.cta-subtitle {
+  color: var(--text-muted);
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+}
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* ============================================================
+   13. FOOTER
+   ============================================================ */
+.site-footer {
+  background: #0A0908;
+  padding: 5rem 0 2.5rem;
+  border-top: 1px solid var(--border-soft);
+  position: relative;
+  overflow: hidden;
+}
+.site-footer::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%; transform: translateX(-50%);
+  width: min(400px, 90%); height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+.footer-brand {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+  line-height: 1;
+}
+.footer-brand .accent { color: var(--gold); }
+.footer-desc { color: var(--text-muted); font-size: 0.88rem; line-height: 1.7; max-width: 240px; }
+
+.footer-heading {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  margin-bottom: 1.25rem;
+}
+.footer-links { list-style: none; padding: 0; }
+.footer-links li {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.footer-links li i { color: var(--gold); font-size: 0.85rem; flex-shrink: 0; }
+.footer-links a { color: var(--text-muted); }
+.footer-links a:hover { color: var(--gold-light); }
+
+.footer-divider { border-color: var(--border-soft); margin: 2.5rem 0 1.5rem; }
+.footer-bottom p { color: var(--text-muted); font-size: 0.82rem; text-align: center; margin: 0; }
+
+/* ============================================================
+   14. CHATBOT — Redesign premium
+   ============================================================ */
+.chat-fab {
+  position: fixed;
+  bottom: calc(2rem + env(safe-area-inset-bottom, 0px)); right: 2rem;
+  width: 60px; height: 60px;
+  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-dark) 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.55rem;
+  color: #0D0C0A;
+  cursor: pointer;
+  box-shadow: 0 4px 24px rgba(201,169,110,0.45), 0 0 0 0 rgba(201,169,110,0.3);
+  z-index: 1000;
+  transition: all var(--t) var(--ease);
+  animation: fabPulse 3s infinite;
+}
+.chat-fab:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 36px rgba(201,169,110,0.6);
+  animation: none;
+}
+@keyframes fabPulse {
+  0%, 100% { box-shadow: 0 4px 24px rgba(201,169,110,0.45), 0 0 0 0 rgba(201,169,110,0.3); }
+  50%       { box-shadow: 0 4px 24px rgba(201,169,110,0.45), 0 0 0 10px rgba(201,169,110,0); }
+}
+
+.chat-window {
+  position: fixed;
+  bottom: 6.5rem; right: 2rem;
+  width: 360px;
+  max-width: calc(100vw - 2rem);
+  max-height: min(520px, calc(100vh - 9rem));
+  max-height: min(520px, calc(100dvh - 9rem));
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  box-shadow: 0 24px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(201,169,110,0.1);
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  overflow: hidden;
+}
+.chat-window.hidden { display: none; }
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.1rem;
+  background: linear-gradient(135deg, var(--surface-2) 0%, var(--surface-3) 100%);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+.chat-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  opacity: 0.5;
+}
+.chat-header-info { display: flex; align-items: center; gap: 0.75rem; }
+
+.chat-avatar {
+  width: 40px; height: 40px;
+  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-dark) 100%);
+  color: #0D0C0A;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  flex-shrink: 0;
+  box-shadow: 0 2px 12px rgba(201,169,110,0.3);
+}
+.chat-header strong { display: block; font-size: 0.9rem; color: var(--text); font-weight: 600; }
+.chat-status {
+  font-size: 0.72rem;
+  color: var(--success);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.chat-status::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--success);
+  border-radius: 50%;
+  animation: statusPulse 2s infinite;
+}
+@keyframes statusPulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+.chat-close-btn {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+  color: var(--text-muted);
+  width: 32px; height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--t);
+  font-size: 0.9rem;
+}
+.chat-close-btn:hover { background: rgba(255,255,255,0.1); color: var(--text); }
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+.chat-messages::-webkit-scrollbar { width: 4px; }
+.chat-messages::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+.chat-msg {
+  max-width: 84%;
+  padding: 0.65rem 1rem;
+  border-radius: 14px;
+  font-size: 0.87rem;
+  line-height: 1.6;
+  animation: msgIn 0.25s var(--ease-out) both;
+}
+@keyframes msgIn {
+  from { opacity: 0; transform: translateY(8px) scale(0.97); }
+  to   { opacity: 1; transform: none; }
+}
+.chat-msg.user {
+  align-self: flex-end;
+  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+  color: #0D0C0A;
+  border-bottom-right-radius: 4px;
+  font-weight: 500;
+}
+.chat-msg.bot {
+  align-self: flex-start;
+  background: var(--surface-2);
+  color: var(--text);
+  border-bottom-left-radius: 4px;
+  border: 1px solid var(--border-soft);
+}
+
+.chat-msg.typing {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  padding: 0.8rem 1.1rem;
+}
+.typing-dot {
+  width: 7px; height: 7px;
+  background: var(--text-muted);
+  border-radius: 50%;
+  animation: typingBounce 1.3s infinite ease-in-out;
+}
+.typing-dot:nth-child(2) { animation-delay: 0.18s; }
+.typing-dot:nth-child(3) { animation-delay: 0.36s; }
+@keyframes typingBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.4; }
+  50%       { transform: translateY(-5px); opacity: 1; }
+}
+
+.chat-input-area {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.85rem;
+  border-top: 1px solid var(--border-soft);
+  background: var(--surface-2);
+}
+#chat-input {
+  flex: 1;
+  background: var(--bg);
+  border: 1px solid var(--border-soft);
+  border-radius: 12px;
+  color: var(--text);
+  padding: 0.55rem 1rem;
+  font-size: 0.87rem;
+  font-family: var(--font-body);
+  outline: none;
+  transition: border-color var(--t);
+}
+#chat-input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,169,110,0.1); }
+#chat-input::placeholder { color: var(--text-muted); }
+#chat-send {
+  width: 40px; height: 40px;
+  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-dark) 100%);
+  border: none;
+  border-radius: 12px;
+  color: #0D0C0A;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--t);
+  flex-shrink: 0;
+}
+#chat-send:hover { transform: scale(1.05); box-shadow: 0 2px 12px rgba(201,169,110,0.4); }
+#chat-send:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+/* ============================================================
+   15. À PROPOS
+   ============================================================ */
+.section-story { background: var(--bg); }
+.story-img {
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow);
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+}
+
+.section-team { background: var(--surface); }
+.team-card {
+  background: var(--surface-2);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  transition: all 0.4s var(--ease);
+}
+.team-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--border);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+.team-img-wrapper { height: 250px; overflow: hidden; }
+.team-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease);
+  filter: grayscale(15%);
+}
+.team-card:hover .team-img { transform: scale(1.06); filter: grayscale(0%); }
+.team-info { padding: 1.4rem; }
+.team-name { font-family: var(--font-display); font-size: 1.1rem; margin-bottom: 0.2rem; }
+.team-role { color: var(--gold); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; margin-bottom: 0.6rem; }
+.team-bio { color: var(--text-muted); font-size: 0.86rem; line-height: 1.65; margin: 0; }
+
+.section-values { background: var(--bg-2); }
+.value-item {
+  text-align: center;
+  padding: 2.25rem 1.5rem;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--r-xl);
+  background: var(--surface);
+  transition: all 0.4s var(--ease);
+}
+.value-item:hover { border-color: var(--border); transform: translateY(-4px); }
+.value-icon { font-size: 1.8rem; color: var(--gold); display: block; margin-bottom: 0.75rem; }
+.value-item h5 { font-family: var(--font-display); margin-bottom: 0.5rem; }
+.value-item p { color: var(--text-muted); font-size: 0.88rem; margin: 0; }
+
+/* ============================================================
+   16. SERVICES COMPLETS
+   ============================================================ */
+.section-services-full { background: var(--bg); }
+.services-category { margin-bottom: 4.5rem; }
+
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border-soft);
+}
+.category-icon-wrap {
+  width: 48px; height: 48px;
+  background: var(--gold-subtle);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+.category-icon { font-size: 1.3rem; color: var(--gold); width: 48px; height: 48px; background: var(--gold-subtle); border: 1px solid var(--border); border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.category-title { font-family: var(--font-display); font-size: 1.5rem; margin: 0; }
+
+.service-full-card {
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s var(--ease);
+}
+.service-full-card:hover {
+  border-color: var(--border);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+.sfc-top { height: 200px; overflow: hidden; }
+.sfc-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease);
+  filter: brightness(0.85) saturate(0.85);
+}
+.service-full-card:hover .sfc-img { transform: scale(1.07); filter: brightness(0.95) saturate(1); }
+.sfc-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+.sfc-title { font-family: var(--font-display); font-size: 1.1rem; margin-bottom: 0.6rem; }
+.sfc-desc { color: var(--text-muted); font-size: 0.88rem; line-height: 1.7; flex: 1; margin-bottom: 1.25rem; }
+.sfc-footer { display: flex; justify-content: space-between; align-items: center; }
+.sfc-price { font-weight: 700; color: var(--gold); font-size: 1rem; }
+
+.btn-accent-sm {
+  background: var(--gold-subtle);
+  color: var(--gold);
+  font-weight: 600;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 0.35rem 0.9rem;
+  font-size: 0.8rem;
+  transition: all var(--t);
+  cursor: pointer;
+}
+.btn-accent-sm:hover { background: var(--gold); color: #0D0C0A; }
+
+/* ============================================================
+   17. CONTACT
+   ============================================================ */
+.section-contact { background: var(--bg-2); }
+
+.form-label-custom {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-soft);
+  margin-bottom: 0.45rem;
+  letter-spacing: 0.04em;
+}
+.form-input-custom {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--r);
+  color: var(--text);
+  padding: 0.8rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  transition: all var(--t);
+  outline: none;
+  appearance: none;
+}
+.form-input-custom:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201,169,110,0.1);
+  background: var(--surface-2);
+}
+.form-input-custom::placeholder { color: var(--text-muted); opacity: 0.7; }
+.form-textarea-custom { resize: vertical; min-height: 130px; }
+.form-select-custom {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%237A7268' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 12px;
+  cursor: pointer;
+}
+.form-select-custom option { background: var(--surface); color: var(--text); }
+
+.field-error { display: none; color: var(--error); font-size: 0.78rem; margin-top: 0.3rem; }
+.field-error.visible { display: block; }
+.form-input-custom.input-error { border-color: var(--error); }
+
+.alert-success-custom {
+  background: rgba(91,175,130,0.1);
+  border: 1px solid var(--success);
+  color: var(--success);
+  border-radius: var(--r);
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.92rem;
+}
+
+.contact-info-block {
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--r-xl);
+  padding: 2.25rem;
+}
+.contact-info-item { display: flex; gap: 1rem; margin-bottom: 1.75rem; align-items: flex-start; }
+.contact-info-icon { font-size: 1.2rem; color: var(--gold); margin-top: 0.1rem; flex-shrink: 0; }
+.contact-info-item h5 {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+  font-family: var(--font-body);
+}
+.contact-info-item p { color: var(--text-soft); font-size: 0.92rem; margin: 0; line-height: 1.6; }
+
+.hours-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; color: var(--text-muted); }
+.hours-table td { padding: 0.3rem 0; }
+.hours-table td:last-child { text-align: right; font-weight: 500; color: var(--text-soft); }
+.hours-table .closed td { color: rgba(122,114,104,0.4); font-style: italic; }
+
+.contact-access { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-soft); }
+.contact-access h5 {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+  font-family: var(--font-body);
+}
+.contact-access p { color: var(--text-muted); font-size: 0.88rem; margin: 0; }
+
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.spin { display: inline-block; animation: spin 0.8s linear infinite; }
+
+/* ============================================================
+   18. SCROLL REVEAL
+   ============================================================ */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+.js .reveal.visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* ============================================================
+   19. UTILITAIRES
+   ============================================================ */
+.hidden { display: none !important; }
+
+/* ============================================================
+   20. RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  .hero-title { font-size: 2.6rem; }
+  .hero-subtitle { font-size: 0.95rem; }
+  .hero-actions { flex-direction: column; }
+  .hero-actions .btn, .hero-actions a { width: 100%; text-align: center; }
+
+  .section-stats,
+  .section-services-preview,
+  .section-gallery,
+  .section-why,
+  .section-story,
+  .section-team,
+  .section-values,
+  .section-services-full,
+  .section-contact,
+  .section-cta { padding: 4rem 0; }
+
+  .cta-inner { padding: 2.5rem 1.5rem; }
+
+  .chat-window {
+    width: calc(100vw - 2rem);
+    right: 1rem;
+    bottom: 5.5rem;
+  }
+
+  .cta-actions { flex-direction: column; align-items: center; }
+  .cta-actions .btn { width: 100%; max-width: 300px; }
+
+  .stat-item::after { display: none; }
+  .stat-item { padding: 1rem 0.5rem; }
+  .stat-number { font-size: 2.6rem; }
+  .section-subtitle { max-width: 100%; }
+  .story-img { height: 320px; }
+  .team-img-wrapper { height: 300px; }
+  .contact-info-block { padding: 1.5rem; }
+  .category-title { font-size: 1.25rem; }
+  .services-category { margin-bottom: 3rem; }
+  .page-hero { padding-top: 6rem; padding-bottom: 2.5rem; }
+  .chat-fab { right: 1rem; }
+}
+
+@media (max-width: 991px) {
+  .hero-overlay { background: linear-gradient(to top, rgba(5,4,3,0.92) 0%, rgba(5,4,3,0.6) 60%, rgba(5,4,3,0.4) 100%); }
+  .hero-content { padding-top: 7rem; padding-bottom: 6rem; }
+  .carousel-img { height: 380px; }
+}
+
+@media (max-width: 480px) {
+  .stat-number { font-size: 2.2rem; }
+  .stat-label { font-size: 0.7rem; letter-spacing: 0.06em; }
+  .page-hero-title { font-size: 2rem; }
+  .hero-title { font-size: 2.2rem; }
+  .hero-trust { gap: 0.9rem 1.25rem; margin-top: 2rem; }
+  .navbar-brand { font-size: 1.6rem; }
+  .carousel-img { height: 240px; }
+  .cta-inner { padding: 2rem 1.1rem; }
+  .scroll-indicator { display: none; }
+}
+
+
+/* ============================================================
+   21. ROBUSTESSE (écrans, tactile, pannes réseau)
+   ============================================================ */
+.page-hero--short { min-height: 30vh; }
+.story-image-wrapper { position: relative; }
+.carousel-item, .sfc-top, .team-img-wrapper, .story-image-wrapper { background: var(--surface-2); }
+img.img-failed { opacity: 0; }
+.chat-msg { white-space: pre-wrap; overflow-wrap: anywhere; }
+.footer-links li { align-items: flex-start; min-width: 0; overflow-wrap: anywhere; }
+.footer-links li i { margin-top: 0.2rem; }
+.hero-title, .section-title, .cta-title { overflow-wrap: break-word; }
+.hours-table td { vertical-align: top; }
+
+/* Écrans très petits */
+@media (max-width: 360px) {
+  .hero-title { font-size: 1.9rem; }
+  .btn-accent, .btn-ghost { padding: 0.75rem 1.1rem; }
+  .service-card, .why-item, .contact-info-block { padding-left: 1.1rem; padding-right: 1.1rem; }
+}
+
+/* Mobile : cibles tactiles confortables + pas de zoom auto iOS */
+@media (max-width: 991px) {
+  .nav-link { padding: 0.7rem 0.9rem !important; }
+  .nav-link::after { display: none; }
+  .nav-item .btn-nav { display: inline-block; margin-top: 0.5rem; }
+  .navbar-collapse { max-height: calc(100vh - 6rem); overflow-y: auto; }
+}
+@media (max-width: 768px) {
+  #chat-input, .form-input-custom { font-size: 16px; }
+  .chat-close-btn { width: 40px; height: 40px; }
+  .btn-accent-sm { padding: 0.5rem 1rem; }
+}
+
+/* Mobile paysage (faible hauteur) */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero { min-height: auto; }
+  .hero-content { padding-top: 6rem; padding-bottom: 3rem; }
+  .scroll-indicator { display: none; }
+  .chat-window { max-height: calc(100vh - 6rem); }
+}
+
+/* Très grands écrans */
+@media (min-width: 1600px) {
+  html { font-size: 17px; }
+  .container { max-width: 1400px; }
+}
+
+/* Appareils tactiles : pas d'effets de survol "collants" */
+@media (hover: none) {
+  .service-card:hover, .why-item:hover, .team-card:hover, .value-item:hover,
+  .service-full-card:hover { transform: none; }
+  .hero:hover .hero-bg { transform: scale(1.04); }
+}
+
+/* Mouvement réduit */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+
+/* Icônes de secours si Bootstrap Icons ne se charge pas */
+.no-icons .bi { font-style: normal; display: inline-block; line-height: 1; }
+.no-icons .bi-scissors::before { content: "\2702"; }
+.no-icons .bi-palette::before { content: "\1F3A8"; }
+.no-icons .bi-droplet::before { content: "\1F4A7"; }
+.no-icons .bi-heart::before { content: "\2665"; }
+.no-icons .bi-award::before { content: "\1F3C5"; }
+.no-icons .bi-leaf::before { content: "\1F33F"; }
+.no-icons .bi-patch-check-fill::before, .no-icons .bi-check-circle::before { content: "\2714"; }
+.no-icons .bi-star-fill::before { content: "\2605"; }
+.no-icons .bi-people::before, .no-icons .bi-people-fill::before { content: "\1F465"; }
+.no-icons .bi-chat-heart::before, .no-icons .bi-chat-heart-fill::before { content: "\1F4AC"; }
+.no-icons .bi-chevron-compact-down::before { content: "\2304"; }
+.no-icons .bi-clock::before { content: "\1F552"; }
+.no-icons .bi-envelope::before { content: "\2709"; }
+.no-icons .bi-eye::before { content: "\1F441"; }
+.no-icons .bi-geo-alt::before { content: "\1F4CD"; }
+.no-icons .bi-recycle::before { content: "\267B"; }
+.no-icons .bi-send::before, .no-icons .bi-send-fill::before { content: "\27A4"; }
+.no-icons .bi-stars::before { content: "\2728"; }
+.no-icons .bi-telephone::before { content: "\260E"; }
+.no-icons .bi-train-front::before { content: "\1F686"; }
+.no-icons .bi-x-lg::before { content: "\2715"; }
+.no-icons .bi-arrow-repeat::before { content: "\21BB"; }
+
+.alert-success-custom.error { background: rgba(217,95,95,0.1); border-color: var(--error); color: var(--error); }
+
+/* Gouttières : ne jamais dépasser le padding du conteneur sur mobile/tablette (évite le scroll horizontal) */
+@media (max-width: 991px) {
+  .g-4 { --bs-gutter-x: 1.5rem; --bs-gutter-y: 1.5rem; }
+  .g-5 { --bs-gutter-x: 1.5rem; --bs-gutter-y: 2.5rem; }
+}
+
+</style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Studio<span class="accent">!</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarNav" aria-controls="navbarNav"
+              aria-expanded="false" aria-label="Ouvrir le menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+          <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">À propos</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link btn-nav ms-lg-2" href="contact.html">Prendre RDV</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <img src="https://images.unsplash.com/photo-1560869713-7d0a29430803?w=1400&q=80" alt="" class="page-hero-bg" aria-hidden="true" loading="eager">
+    <div class="page-hero-overlay"></div>
+    <div class="container page-hero-content">
+      <p class="page-hero-eyebrow reveal">Nos prestations</p>
+      <h1 class="page-hero-title reveal">Services<br>&amp; Tarifs</h1>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       SECTION — COUPES
+  ======================================================== -->
+  <section class="section-services-full">
+    <div class="container">
+
+      <!-- Catégorie : Coupes -->
+      <div class="services-category reveal">
+        <div class="category-header">
+          <i class="bi bi-scissors category-icon"></i>
+          <h2 class="category-title">Coupes &amp; Coiffage</h2>
+        </div>
+        <div class="row g-4">
+
+          <div class="col-md-6 col-lg-4">
+            <div class="service-full-card">
+              <div class="sfc-top">
+                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=600&q=80"
+                     alt="Coupe femme" class="sfc-img">
+              </div>
+              <div class="sfc-body">
+                <h3 class="sfc-title">Coupe Femme</h3>
+                <p class="sfc-desc">Shampoing, coupe personnalisée, brushing ou coiffage inclus. Adapté à toutes les longueurs.</p>
+                <div class="sfc-footer">
+                  <span class="sfc-price">35€</span>
+                  <a href="contact.html" class="btn btn-sm btn-accent-sm">Réserver</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="service-full-card">
+              <div class="sfc-top">
+                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&q=80"
+                     alt="Coupe homme" class="sfc-img">
+              </div>
+              <div class="sfc-body">
+                <h3 class="sfc-title">Coupe Homme</h3>
+                <p class="sfc-desc">Coupe ciseau ou tondeuse, finitions soignées. Shampoing inclus. Dégradé sur demande.</p>
+                <div class="sfc-footer">
+                  <span class="sfc-price">20€</span>
+                  <a href="contact.html" class="btn btn-sm btn-accent-sm">Réserver</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="service-full-card">
+              <div class="sfc-top">
+                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?w=600&q=80"
+                     alt="Chignon de soirée" class="sfc-img">
+              </div>
+              <div class="sfc-body">
+                <h3 class="sfc-title">Chignon de soirée</h3>
+                <p class="sfc-desc">Chignon structuré, tressé ou romantique pour vos événements. Mise en beauté complète disponible.</p>
+                <div class="sfc-footer">
+                  <span class="sfc-price">55€</span>
+                  <a href="contact.html" class="btn btn-sm btn-accent-sm">Réserver</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Catégorie : Colorations -->
+      <div class="services-category reveal">
+        <div class="category-header">
+          <i class="bi bi-palette category-icon"></i>
+          <h2 class="category-title">Colorations &amp; Techniques</h2>
+        </div>
+        <div class="row g-4">
+
+          <div class="col-md-6 col-lg-4">
+            <div class="service-full-card">
+              <div class="sfc-top">
+                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80"
+                     alt="Balayage" class="sfc-img">
+              </div>
+              <div class="sfc-body">
+                <h3 class="sfc-title">Balayage</h3>
+                <p class="sfc-desc">Technique de coloration naturelle et lumineuse. Californien, ombré hair, baby lights. Résultat sur-mesure.</p>
+                <div class="sfc-footer">
+                  <span class="sfc-price">Dès 70€</span>
+                  <a href="contact.html" class="btn btn-sm btn-accent-sm">Réserver</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="service-full-card">
+              <div class="sfc-top">
+                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=600&q=80"
+                     alt="Coloration pleine" class="sfc-img">
+              </div>
+              <div class="sfc-body">
+                <h3 class="sfc-title">Coloration pleine</h3>
+                <p class="sfc-desc">Couverture des racines ou changement de couleur total. Produits professionnels doux, couleur durable.</p>
+                <div class="sfc-footer">
+                  <span class="sfc-price">Dès 55€</span>
+                  <a href="contact.html" class="btn btn-sm btn-accent-sm">Réserver</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Catégorie : Soins -->
+      <div class="services-category reveal">
+        <div class="category-header">
+          <i class="bi bi-droplet category-icon"></i>
+          <h2 class="category-title">Soins &amp; Traitements</h2>
+        </div>
+        <div class="row g-4">
+
+          <div class="col-md-6 col-lg-4">
+            <div class="service-full-card">
+              <div class="sfc-top">
+                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1526045612212-70caf35c14df?w=600&q=80"
+                     alt="Kératine" class="sfc-img">
+              </div>
+              <div class="sfc-body">
+                <h3 class="sfc-title">Kératine</h3>
+                <p class="sfc-desc">Lissage semi-permanent pour des cheveux soyeux, sans frisottis, jusqu'à 4 mois. Sans formaldéhyde.</p>
+                <div class="sfc-footer">
+                  <span class="sfc-price">90€</span>
+                  <a href="contact.html" class="btn btn-sm btn-accent-sm">Réserver</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="service-full-card">
+              <div class="sfc-top">
+                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1543179887-f40b2c42a8ba?w=600&q=80"
+                     alt="Soin profond" class="sfc-img">
+              </div>
+              <div class="sfc-body">
+                <h3 class="sfc-title">Soin profond</h3>
+                <p class="sfc-desc">Masque nourrissant, restructurant ou hydratant selon vos besoins. Cheveux brillants et revitalisés.</p>
+                <div class="sfc-footer">
+                  <span class="sfc-price">30€</span>
+                  <a href="contact.html" class="btn btn-sm btn-accent-sm">Réserver</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-cta reveal">
+    <div class="container text-center">
+      <h2 class="cta-title">Une question sur une prestation&nbsp;?</h2>
+      <p class="cta-subtitle">Léa, notre assistante, peut vous renseigner — ou appelez-nous directement.</p>
+      <div class="cta-actions">
+        <a href="contact.html" class="btn btn-accent btn-lg">Prendre rendez-vous</a>
+        <a href="tel:0123456789" class="btn btn-outline-light btn-lg ms-3">
+          <i class="bi bi-telephone me-2"></i>01 23 45 67 89
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <p class="footer-brand">Studio<span class="accent">!</span></p>
+          <p class="footer-desc">Salon de coiffure mixte au cœur de Paris. L'excellence capillaire, sans compromis.</p>
+        </div>
+        <div class="col-md-2 col-6">
+          <h5 class="footer-heading">Navigation</h5>
+          <ul class="footer-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="about.html">À propos</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 col-6">
+          <h5 class="footer-heading">Horaires</h5>
+          <ul class="footer-links">
+            <li>Mardi – Vendredi : 9h–19h</li>
+            <li>Samedi : 9h–18h</li>
+            <li>Dimanche &amp; Lundi : Fermé</li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5 class="footer-heading">Nous trouver</h5>
+          <ul class="footer-links">
+            <li><i class="bi bi-geo-alt me-2"></i>12 rue des Artisans, 75011 Paris</li>
+            <li><i class="bi bi-telephone me-2"></i>01 23 45 67 89</li>
+            <li><i class="bi bi-envelope me-2"></i>contact@studio-coiffure.fr</li>
+          </ul>
+        </div>
+      </div>
+      <hr class="footer-divider">
+      <div class="footer-bottom">
+        <p>&copy; 2024 Studio ! — Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CHATBOT -->
+  <div id="chat-toggle" class="chat-fab" title="Parler à Léa">
+    <i class="bi bi-chat-heart"></i>
+  </div>
+  <div id="chat-window" class="chat-window hidden">
+    <div class="chat-header">
+      <div class="chat-header-info">
+        <div class="chat-avatar">L</div>
+        <div>
+          <strong>Léa</strong>
+          <span class="chat-status">Assistante Studio !</span>
+        </div>
+      </div>
+      <button id="chat-close" class="chat-close-btn" aria-label="Fermer">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+    <div id="chat-messages" class="chat-messages"></div>
+    <div class="chat-input-area">
+      <input type="text" id="chat-input" placeholder="Posez votre question..." autocomplete="off">
+      <button id="chat-send" aria-label="Envoyer"><i class="bi bi-send"></i></button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+/* ============================================================
+   STUDIO ! — Script principal
+   Modules :
+   1. Navbar scroll
+   2. Scroll reveal
+   3. Validation formulaire contact
+   4. Chatbot Léa (Gemini API)
+   ============================================================ */
+
+
+/* ============================================================
+   0. ROBUSTESSE — secours si Bootstrap, les icônes ou les images
+      ne se chargent pas (hors-ligne, CDN bloqué, content://…)
+   ============================================================ */
+(function initFallbacks() {
+  const root = document.documentElement;
+
+  /* --- Images cassées : on masque l'icône "image brisée" --- */
+  document.querySelectorAll('img').forEach(img => {
+    const fail = () => img.classList.add('img-failed');
+    img.addEventListener('error', fail);
+    if (img.complete && img.naturalWidth === 0 && img.currentSrc) fail();
+  });
+
+  /* --- Icônes : bascule sur des symboles si la police est absente --- */
+  const probe = document.querySelector('i.bi');
+  if (probe) {
+    const check = () => {
+      const c = getComputedStyle(probe, '::before').content;
+      if (!c || c === 'none' || c === 'normal') root.classList.add('no-icons');
+    };
+    if (document.readyState === 'complete') check();
+    else window.addEventListener('load', check);
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => {
+        try {
+          document.fonts.forEach(f => {
+            if (/bootstrap-icons/i.test(f.family) && f.status === 'error') root.classList.add('no-icons');
+          });
+        } catch (e) { /* ignore */ }
+      });
+    }
+  }
+
+  /* --- Bootstrap JS absent : menu burger + carrousel maison --- */
+  if (window.bootstrap) return;
+  root.classList.add('no-bs');
+
+  // Menu mobile
+  document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(btn => {
+    const target = document.querySelector(btn.getAttribute('data-bs-target'));
+    if (!target) return;
+    const setOpen = open => {
+      target.classList.toggle('show', open);
+      btn.setAttribute('aria-expanded', String(open));
+    };
+    btn.addEventListener('click', () => setOpen(!target.classList.contains('show')));
+    target.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
+  });
+
+  // Carrousel
+  document.querySelectorAll('.carousel').forEach(car => {
+    const items = [...car.querySelectorAll('.carousel-item')];
+    const dots  = [...car.querySelectorAll('.carousel-indicators [data-bs-slide-to]')];
+    if (items.length < 2) return;
+    let index = Math.max(0, items.findIndex(i => i.classList.contains('active')));
+    let timer = null;
+
+    const show = n => {
+      index = (n + items.length) % items.length;
+      items.forEach((it, i) => it.classList.toggle('active', i === index));
+      dots.forEach((d, i) => d.classList.toggle('active', i === index));
+    };
+    const play = () => {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      stop(); timer = setInterval(() => show(index + 1), 5000);
+    };
+    const stop = () => { if (timer) clearInterval(timer); timer = null; };
+
+    car.querySelector('[data-bs-slide="prev"]')?.addEventListener('click', () => { show(index - 1); play(); });
+    car.querySelector('[data-bs-slide="next"]')?.addEventListener('click', () => { show(index + 1); play(); });
+    dots.forEach((d, i) => d.addEventListener('click', () => { show(i); play(); }));
+
+    // Balayage tactile
+    let x0 = null;
+    car.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
+    car.addEventListener('touchend', e => {
+      if (x0 === null) return;
+      const dx = e.changedTouches[0].clientX - x0; x0 = null;
+      if (Math.abs(dx) > 40) { show(index + (dx < 0 ? 1 : -1)); play(); }
+    }, { passive: true });
+
+    car.addEventListener('mouseenter', stop);
+    car.addEventListener('mouseleave', play);
+    document.addEventListener('visibilitychange', () => document.hidden ? stop() : play());
+    show(index); play();
+  });
+})();
+
+
+/* ============================================================
+   1. NAVBAR — Changement de style au scroll
+   ============================================================ */
+(function initNavbar() {
+  const nav = document.getElementById('mainNav');
+  if (!nav) return;
+
+  const onScroll = () => {
+    if (window.scrollY > 60) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll(); // état initial
+})();
+
+
+(function initMobileMenu() {
+  const menu = document.getElementById('navbarNav');
+  if (!menu || !window.bootstrap) return;
+  menu.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      if (menu.classList.contains('show')) bootstrap.Collapse.getOrCreateInstance(menu).hide();
+    });
+  });
+})();
+
+
+/* ============================================================
+   2. SCROLL REVEAL — Apparition des éléments au viewport
+   ============================================================ */
+(function initScrollReveal() {
+  const elements = document.querySelectorAll('.reveal');
+  if (!elements.length) return;
+
+  // Respecter prefers-reduced-motion
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) {
+    elements.forEach(el => el.classList.add('visible'));
+    return;
+  }
+
+  if (!('IntersectionObserver' in window)) {
+    elements.forEach(el => el.classList.add('visible'));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          // Délai en cascade léger
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, i * 60);
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+  );
+
+  elements.forEach(el => observer.observe(el));
+})();
+
+
+/* ============================================================
+   3. FORMULAIRE CONTACT — Validation côté client
+   ============================================================ */
+(function initContactForm() {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+
+  // Renseigner une URL (ex. https://formspree.io/f/xxxx) pour un envoi réel.
+  // Laissée vide : le formulaire ouvre l'application mail du visiteur.
+  const FORM_ENDPOINT = '';
+  const CONTACT_EMAIL = 'contact@studio-coiffure.fr';
+
+  const successMsg  = document.getElementById('form-success');
+  const submitBtn   = document.getElementById('submitBtn');
+  const btnText     = submitBtn?.querySelector('.btn-text');
+  const btnLoading  = submitBtn?.querySelector('.btn-loading');
+
+  /**
+   * Valide un champ et affiche/masque son message d'erreur.
+   * @param {string} fieldId   - id du champ
+   * @param {string} errorId   - id du span d'erreur
+   * @param {Function} checkFn - fonction qui retourne true si valide
+   * @returns {boolean}
+   */
+  function validateField(fieldId, errorId, checkFn) {
+    const field = document.getElementById(fieldId);
+    const error = document.getElementById(errorId);
+    if (!field || !error) return true;
+
+    const valid = checkFn(field.value.trim());
+    field.classList.toggle('input-error', !valid);
+    error.classList.toggle('visible', !valid);
+    return valid;
+  }
+
+  /** Regex email simple */
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  /** Validation globale */
+  function validateAll() {
+    const v1 = validateField('inputNom',     'error-nom',     v => v.length >= 2);
+    const v2 = validateField('inputEmail',   'error-email',   v => emailRegex.test(v));
+    const v3 = validateField('inputMessage', 'error-message', v => v.length >= 10);
+    return v1 && v2 && v3;
+  }
+
+  /** Retrait des erreurs en temps réel à la saisie */
+  ['inputNom', 'inputEmail', 'inputMessage'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.addEventListener('input', () => {
+        el.classList.remove('input-error');
+        const errEl = document.getElementById('error-' + id.replace('input', '').toLowerCase());
+        if (errEl) errEl.classList.remove('visible');
+      });
+    }
+  });
+
+  /** Soumission */
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    if (!validateAll()) return;
+
+    // État chargement
+    if (btnText)    btnText.classList.add('hidden');
+    if (btnLoading) btnLoading.classList.remove('hidden');
+    submitBtn.disabled = true;
+
+    const data = {
+      nom:     document.getElementById('inputNom').value.trim(),
+      email:   document.getElementById('inputEmail').value.trim(),
+      tel:     (document.getElementById('inputTel')?.value || '').trim(),
+      service: document.getElementById('inputService')?.selectedOptions[0]?.text || '',
+      message: document.getElementById('inputMessage').value.trim()
+    };
+
+    const done = (ok) => {
+      if (btnText)    btnText.classList.remove('hidden');
+      if (btnLoading) btnLoading.classList.add('hidden');
+      submitBtn.disabled = false;
+      if (!successMsg) return;
+      successMsg.classList.toggle('error', !ok);
+      const label = successMsg.querySelector('[data-msg]');
+      if (label) label.textContent = ok
+        ? 'Message prêt ! Nous vous répondrons dans les plus brefs délais.'
+        : 'Envoi impossible pour le moment. Appelez-nous au 01 23 45 67 89.';
+      successMsg.classList.remove('hidden');
+      setTimeout(() => successMsg.classList.add('hidden'), 8000);
+    };
+
+    if (FORM_ENDPOINT) {
+      // Envoi réel (Formspree, Getform, fonction Vercel…)
+      fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      })
+        .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); form.reset(); done(true); })
+        .catch(() => done(false));
+    } else {
+      // Sans backend : ouvre l'application mail avec le message pré-rempli
+      const body = `Nom : ${data.nom}\nEmail : ${data.email}\nTéléphone : ${data.tel || '—'}\nService : ${data.service || '—'}\n\n${data.message}`;
+      const href = 'mailto:' + CONTACT_EMAIL +
+        '?subject=' + encodeURIComponent('Demande de RDV — ' + data.nom) +
+        '&body=' + encodeURIComponent(body);
+      window.location.href = href;
+      form.reset();
+      setTimeout(() => done(true), 400);
+    }
+  });
+})();
+
+
+/* ============================================================
+   4. CHATBOT LÉA — Gemini API
+   ============================================================ */
+(function initChatbot() {
+
+  /* ---- Éléments DOM ---- */
+  const fab         = document.getElementById('chat-toggle');
+  const chatWindow  = document.getElementById('chat-window');
+  const closeBtn    = document.getElementById('chat-close');
+  const messagesBox = document.getElementById('chat-messages');
+  const chatInput   = document.getElementById('chat-input');
+  const sendBtn     = document.getElementById('chat-send');
+
+  if (!fab || !chatWindow || !messagesBox || !chatInput || !sendBtn) return;
+
+  /* ---- Configuration API ---- */
+  // ⚠️ Clé à révoquer après la démo — en prod : variable d'env Vercel + serverless function
+  const GEMINI_API_KEY = 'AQ.Ab8RN6JUze0mqDnFAZn0SLT-kNPtY4tddriy9ZzfqdDOBcLE7Hg';
+  const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+
+  /* ---- System Prompt — Contexte injecté à chaque requête ---- */
+  const SYSTEM_PROMPT = `
+Tu es Léa, l'assistante virtuelle du salon de coiffure "Studio !".
+Tu réponds uniquement en français, avec un ton chaleureux, professionnel et bienveillant.
+Tu utilises le tutoiement ou le vouvoiement selon comment l'utilisateur s'adresse à toi.
+
+INFORMATIONS SUR LE SALON :
+Nom        : Studio !
+Type       : Salon de coiffure mixte
+Adresse    : 12 rue des Artisans, 75011 Paris
+Téléphone  : 01 23 45 67 89
+Email      : contact@studio-coiffure.fr
+Horaires   : Mardi–Vendredi 9h–19h | Samedi 9h–18h | Fermé dimanche et lundi
+Accès      : Métro Voltaire (ligne 9) — 3 min à pied
+
+SERVICES ET TARIFS :
+- Coupe Femme         : 35€  (shampoing + coupe + coiffage)
+- Coupe Homme         : 20€  (shampoing + coupe, dégradé possible)
+- Balayage            : 70€+ (californien, ombré, baby lights)
+- Coloration pleine   : 55€+ (couverture racines ou changement total)
+- Kératine            : 90€  (lissage semi-permanent, dure 3-4 mois)
+- Chignon de soirée   : 55€  (structuré, tressé ou romantique)
+- Soin profond        : 30€  (nourrissant, restructurant ou hydratant)
+
+ÉQUIPE :
+- Sophie Marchand (fondatrice) — coupes structurées, colorations
+- Karim Benali — coupe homme, dégradés, barbier certifié
+- Inès Durand — coloriste, kératine, balayage
+- Amara Diallo — cheveux bouclés, tresses, coiffures cérémonie
+
+PRISE DE RDV : par téléphone (01 23 45 67 89) ou via le formulaire de contact du site.
+
+COMPORTEMENT :
+- Réponds uniquement aux questions liées au salon (services, prix, horaires, RDV, conseils coiffure, équipe)
+- Si la question est hors sujet, redirige poliment vers ce que tu sais faire
+- Sois concis et utile : 2 à 4 phrases maximum par réponse
+- En cas de doute sur un prix, suggère d'appeler pour obtenir un devis personnalisé
+- Ne promets jamais de choses qui ne sont pas listées ci-dessus
+  `.trim();
+
+  /* ---- Historique de conversation (contexte multi-tours) ---- */
+  let conversationHistory = [];
+
+  /* ---- État ---- */
+  let isOpen = false;
+  let isWaiting = false; // Empêche les doubles envois
+
+  /* ---- Ouvrir / Fermer le chat ---- */
+  fab.addEventListener('click', () => {
+    isOpen = !isOpen;
+    chatWindow.classList.toggle('hidden', !isOpen);
+    if (isOpen) {
+      // Message de bienvenue au premier ouverture
+      if (messagesBox.children.length === 0) {
+        addMessage('bot', 'Bonjour ! Je suis Léa, votre assistante chez Studio&nbsp;! 💇 Comment puis-je vous aider aujourd\'hui ?');
+      }
+      chatInput.focus();
+    }
+  });
+
+  closeBtn.addEventListener('click', () => {
+    isOpen = false;
+    chatWindow.classList.add('hidden');
+  });
+
+  /* ---- Envoi par bouton ou Entrée ---- */
+  sendBtn.addEventListener('click', handleSend);
+  chatInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleSend();
+    }
+  });
+
+  /* ---- Ajouter un message dans la fenêtre ---- */
+  function addMessage(role, text) {
+    const div = document.createElement('div');
+    div.classList.add('chat-msg', role);
+    div.innerHTML = text; // innerHTML pour supporter les &nbsp; et <br>
+    messagesBox.appendChild(div);
+    messagesBox.scrollTop = messagesBox.scrollHeight;
+    return div;
+  }
+
+  /* ---- Indicateur de frappe (trois points) ---- */
+  function showTyping() {
+    const div = document.createElement('div');
+    div.classList.add('chat-msg', 'bot', 'typing');
+    div.id = 'typing-indicator';
+    div.innerHTML = `
+      <span class="typing-dot"></span>
+      <span class="typing-dot"></span>
+      <span class="typing-dot"></span>
+    `;
+    messagesBox.appendChild(div);
+    messagesBox.scrollTop = messagesBox.scrollHeight;
+  }
+
+  function hideTyping() {
+    const indicator = document.getElementById('typing-indicator');
+    if (indicator) indicator.remove();
+  }
+
+  /* ---- Gérer l'envoi d'un message ---- */
+  async function handleSend() {
+    const userText = chatInput.value.trim();
+    if (!userText || isWaiting) return;
+
+    isWaiting = true;
+    chatInput.value = '';
+    sendBtn.disabled = true;
+
+    // Afficher le message utilisateur
+    addMessage('user', escapeHTML(userText));
+
+    // Ajouter dans l'historique
+    conversationHistory.push({
+      role: 'user',
+      parts: [{ text: userText }]
+    });
+
+    // Indicateur de frappe
+    showTyping();
+
+    try {
+      const botReply = await callGemini();
+      hideTyping();
+      addMessage('bot', escapeHTML(botReply));
+
+      // Ajouter la réponse du bot dans l'historique
+      conversationHistory.push({
+        role: 'model',
+        parts: [{ text: botReply }]
+      });
+
+    } catch (err) {
+      hideTyping();
+      conversationHistory.pop(); // évite deux tours "user" consécutifs au prochain envoi
+      addMessage('bot', 'Désolée, je rencontre un problème technique. Appelez-nous directement au <strong>01 23 45 67 89</strong> !');
+      console.error('Erreur Gemini :', err);
+    }
+
+    isWaiting = false;
+    sendBtn.disabled = false;
+    chatInput.focus();
+  }
+
+  /* ---- Appel API Gemini avec historique complet ---- */
+  async function callGemini() {
+    const payload = {
+      system_instruction: {
+        parts: [{ text: SYSTEM_PROMPT }]
+      },
+      contents: conversationHistory,
+      generationConfig: {
+        temperature: 0.7,
+        maxOutputTokens: 300,
+      }
+    };
+
+    // Limite l'historique envoyé (les 12 derniers messages)
+    payload.contents = conversationHistory.slice(-12);
+
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 15000);
+    let response;
+    try {
+      response = await fetch(GEMINI_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+        signal: controller.signal
+      });
+    } finally {
+      clearTimeout(timeout);
+    }
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    // Extraction de la réponse
+    return data?.candidates?.[0]?.content?.parts?.[0]?.text
+      || 'Je n\'ai pas pu formuler de réponse. Pouvez-vous reformuler votre question ?';
+  }
+
+  /* ---- Sécurité : échapper le HTML utilisateur ---- */
+  function escapeHTML(str) {
+    return str
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+})();
+
+</script>
+</body>
+</html>
