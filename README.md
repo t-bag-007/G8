@@ -23,6 +23,7 @@ studio-coiffure/
 ├── contact.html      ← Contact & RDV
 ├── style.css         ← Styles custom
 ├── script.js         ← JS (chatbot, validation, scroll)
+├── api/chat.js       ← Fonction Vercel (proxy Gemini)
 ├── assets/
 │   ├── images/
 │   └── icons/
@@ -59,12 +60,27 @@ Aucune dépendance à installer (Bootstrap via CDN).
 
 ## Chatbot — Configuration
 
-Dans `script.js`, remplacer :
-```js
-const GEMINI_API_KEY = 'VOTRE_CLE_GEMINI_ICI';
-```
-par votre clé Google AI Studio.  
-**⚠️ En production : utiliser une Vercel Serverless Function pour ne pas exposer la clé.**
+La clé Gemini n'est plus dans `script.js`. Le navigateur appelle `/api/chat`
+(fonction serverless Vercel dans `api/chat.js`) qui détient la clé.
+
+1. Créer une clé sur https://aistudio.google.com/apikey
+2. Vercel → Project → Settings → Environment Variables :
+   - `GEMINI_API_KEY` = votre clé
+   - `GEMINI_MODEL` (optionnel, défaut `gemini-3.5-flash`)
+3. Redéployer (Deployments → Redeploy), les variables ne s'appliquent qu'aux nouveaux déploiements.
+
+Si l'API est indisponible (ou si le site est ouvert en local via `file://`),
+Léa répond avec des réponses locales de secours (horaires, prix, adresse, RDV).
+
+Test local complet : `npx vercel dev` avec un fichier `.env` contenant `GEMINI_API_KEY=...`
+
+---
+
+## Carte Google Maps
+
+`contact.html` contient une carte intégrée de **Pigier Bénin** (Carré 1270, Rue 320,
+Agontinkon-Ayidoté, Cotonou), sans clé API. Pour changer de lieu, modifier le
+paramètre `q=` dans les trois URL Google Maps de la section `#localisation`.
 
 ---
 

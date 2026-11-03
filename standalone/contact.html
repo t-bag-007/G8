@@ -609,6 +609,7 @@ h1, h2, h3, h4, h5 {
 .section-values,
 .section-services-full,
 .section-contact { padding: 6rem 0; }
+.section-map { padding: 5rem 0 6rem; background: var(--bg-2); border-top: 1px solid var(--border-soft); }
 
 /* ============================================================
    8. STATS — Bande chiffres
@@ -1528,6 +1529,28 @@ img.img-failed { opacity: 0; }
   .g-5 { --bs-gutter-x: 1.5rem; --bs-gutter-y: 2.5rem; }
 }
 
+
+/* ============================================================
+   CARTE GOOGLE MAPS (page Contact)
+   ============================================================ */
+.map-card {
+  margin-top: 2.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: var(--surface);
+}
+.map-frame { display: block; width: 100%; height: 450px; border: 0; }
+.map-actions {
+  display: flex; flex-wrap: wrap; gap: 0.75rem;
+  justify-content: center; margin-top: 1.5rem;
+}
+@media (max-width: 575.98px) {
+  .map-frame { height: 320px; }
+  .map-actions .btn { width: 100%; }
+}
+
 </style>
 </head>
 <body>
@@ -1705,6 +1728,41 @@ img.img-failed { opacity: 0; }
           </div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       SECTION — CARTE GOOGLE MAPS (Pigier Bénin)
+       Pour changer de lieu : modifier le paramètre q= dans les 3 URL
+  ======================================================== -->
+  <section class="section-map" id="localisation">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <div class="section-eyebrow">Nous trouver</div>
+        <h2 class="section-title">Notre localisation</h2>
+        <p class="section-subtitle">Pigier Bénin — Carré 1270, Rue 320, Agontinkon-Ayidoté, Cotonou.</p>
+      </div>
+
+      <div class="map-card reveal">
+        <iframe
+          class="map-frame"
+          title="Carte Google Maps — Pigier Bénin, Cotonou"
+          src="https://www.google.com/maps?q=Pigier+B%C3%A9nin,+Carr%C3%A9+1270,+Rue+320,+Agontinkon-Ayidot%C3%A9,+Cotonou,+B%C3%A9nin&amp;hl=fr&amp;z=16&amp;output=embed"
+          width="100%" height="450" style="border:0;"
+          allowfullscreen loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+      <div class="map-actions reveal">
+        <a class="btn btn-accent" target="_blank" rel="noopener"
+           href="https://www.google.com/maps/dir/?api=1&amp;destination=Pigier+B%C3%A9nin,+Carr%C3%A9+1270,+Rue+320,+Agontinkon-Ayidot%C3%A9,+Cotonou,+B%C3%A9nin">
+          <i class="bi bi-signpost-split me-2"></i><span>Itinéraire</span>
+        </a>
+        <a class="btn btn-outline-light" target="_blank" rel="noopener"
+           href="https://www.google.com/maps/search/?api=1&amp;query=Pigier+B%C3%A9nin,+Carr%C3%A9+1270,+Rue+320,+Agontinkon-Ayidot%C3%A9,+Cotonou,+B%C3%A9nin">
+          <i class="bi bi-box-arrow-up-right me-2"></i>Ouvrir dans Google Maps
+        </a>
       </div>
     </div>
   </section>
@@ -2061,7 +2119,9 @@ img.img-failed { opacity: 0; }
 
 
 /* ============================================================
-   4. CHATBOT LÉA — Gemini API
+   4. CHATBOT LÉA
+   - En ligne : appelle /api/chat (fonction Vercel qui détient la clé Gemini)
+   - Hors ligne / API indisponible : réponses locales de secours
    ============================================================ */
 (function initChatbot() {
 
@@ -2075,64 +2135,21 @@ img.img-failed { opacity: 0; }
 
   if (!fab || !chatWindow || !messagesBox || !chatInput || !sendBtn) return;
 
-  /* ---- Configuration API ---- */
-  // ⚠️ Clé à révoquer après la démo — en prod : variable d'env Vercel + serverless function
-  const GEMINI_API_KEY = 'AQ.Ab8RN6JUze0mqDnFAZn0SLT-kNPtY4tddriy9ZzfqdDOBcLE7Hg';
-  const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+  /* ---- Configuration ---- */
+  // La clé Gemini n'est PLUS dans le navigateur : elle est dans la variable
+  // d'environnement GEMINI_API_KEY de Vercel (voir api/chat.js).
+  const CHAT_ENDPOINT = '/api/chat';
 
-  /* ---- System Prompt — Contexte injecté à chaque requête ---- */
-  const SYSTEM_PROMPT = `
-Tu es Léa, l'assistante virtuelle du salon de coiffure "Studio !".
-Tu réponds uniquement en français, avec un ton chaleureux, professionnel et bienveillant.
-Tu utilises le tutoiement ou le vouvoiement selon comment l'utilisateur s'adresse à toi.
-
-INFORMATIONS SUR LE SALON :
-Nom        : Studio !
-Type       : Salon de coiffure mixte
-Adresse    : 12 rue des Artisans, 75011 Paris
-Téléphone  : 01 23 45 67 89
-Email      : contact@studio-coiffure.fr
-Horaires   : Mardi–Vendredi 9h–19h | Samedi 9h–18h | Fermé dimanche et lundi
-Accès      : Métro Voltaire (ligne 9) — 3 min à pied
-
-SERVICES ET TARIFS :
-- Coupe Femme         : 35€  (shampoing + coupe + coiffage)
-- Coupe Homme         : 20€  (shampoing + coupe, dégradé possible)
-- Balayage            : 70€+ (californien, ombré, baby lights)
-- Coloration pleine   : 55€+ (couverture racines ou changement total)
-- Kératine            : 90€  (lissage semi-permanent, dure 3-4 mois)
-- Chignon de soirée   : 55€  (structuré, tressé ou romantique)
-- Soin profond        : 30€  (nourrissant, restructurant ou hydratant)
-
-ÉQUIPE :
-- Sophie Marchand (fondatrice) — coupes structurées, colorations
-- Karim Benali — coupe homme, dégradés, barbier certifié
-- Inès Durand — coloriste, kératine, balayage
-- Amara Diallo — cheveux bouclés, tresses, coiffures cérémonie
-
-PRISE DE RDV : par téléphone (01 23 45 67 89) ou via le formulaire de contact du site.
-
-COMPORTEMENT :
-- Réponds uniquement aux questions liées au salon (services, prix, horaires, RDV, conseils coiffure, équipe)
-- Si la question est hors sujet, redirige poliment vers ce que tu sais faire
-- Sois concis et utile : 2 à 4 phrases maximum par réponse
-- En cas de doute sur un prix, suggère d'appeler pour obtenir un devis personnalisé
-- Ne promets jamais de choses qui ne sont pas listées ci-dessus
-  `.trim();
-
-  /* ---- Historique de conversation (contexte multi-tours) ---- */
-  let conversationHistory = [];
-
-  /* ---- État ---- */
+  /* ---- Historique de conversation ---- */
+  let history = [];            // [{ role: 'user' | 'model', text }]
   let isOpen = false;
-  let isWaiting = false; // Empêche les doubles envois
+  let isWaiting = false;
 
-  /* ---- Ouvrir / Fermer le chat ---- */
+  /* ---- Ouvrir / Fermer ---- */
   fab.addEventListener('click', () => {
     isOpen = !isOpen;
     chatWindow.classList.toggle('hidden', !isOpen);
     if (isOpen) {
-      // Message de bienvenue au premier ouverture
       if (messagesBox.children.length === 0) {
         addMessage('bot', 'Bonjour ! Je suis Léa, votre assistante chez Studio&nbsp;! 💇 Comment puis-je vous aider aujourd\'hui ?');
       }
@@ -2145,7 +2162,6 @@ COMPORTEMENT :
     chatWindow.classList.add('hidden');
   });
 
-  /* ---- Envoi par bouton ou Entrée ---- */
   sendBtn.addEventListener('click', handleSend);
   chatInput.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
@@ -2154,36 +2170,46 @@ COMPORTEMENT :
     }
   });
 
-  /* ---- Ajouter un message dans la fenêtre ---- */
-  function addMessage(role, text) {
+  /* ---- Affichage ---- */
+  function addMessage(role, html) {
     const div = document.createElement('div');
     div.classList.add('chat-msg', role);
-    div.innerHTML = text; // innerHTML pour supporter les &nbsp; et <br>
+    div.innerHTML = html;
     messagesBox.appendChild(div);
     messagesBox.scrollTop = messagesBox.scrollHeight;
     return div;
   }
 
-  /* ---- Indicateur de frappe (trois points) ---- */
   function showTyping() {
     const div = document.createElement('div');
     div.classList.add('chat-msg', 'bot', 'typing');
     div.id = 'typing-indicator';
-    div.innerHTML = `
-      <span class="typing-dot"></span>
-      <span class="typing-dot"></span>
-      <span class="typing-dot"></span>
-    `;
+    div.innerHTML = '<span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span>';
     messagesBox.appendChild(div);
     messagesBox.scrollTop = messagesBox.scrollHeight;
   }
 
   function hideTyping() {
-    const indicator = document.getElementById('typing-indicator');
-    if (indicator) indicator.remove();
+    const el = document.getElementById('typing-indicator');
+    if (el) el.remove();
   }
 
-  /* ---- Gérer l'envoi d'un message ---- */
+  function escapeHTML(str) {
+    return str
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  /** Texte brut -> HTML sûr (gras **x** et retours à la ligne conservés). */
+  function formatReply(text) {
+    return escapeHTML(text)
+      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\n/g, '<br>');
+  }
+
+  /* ---- Envoi d'un message ---- */
   async function handleSend() {
     const userText = chatInput.value.trim();
     if (!userText || isWaiting) return;
@@ -2192,89 +2218,86 @@ COMPORTEMENT :
     chatInput.value = '';
     sendBtn.disabled = true;
 
-    // Afficher le message utilisateur
     addMessage('user', escapeHTML(userText));
-
-    // Ajouter dans l'historique
-    conversationHistory.push({
-      role: 'user',
-      parts: [{ text: userText }]
-    });
-
-    // Indicateur de frappe
+    history.push({ role: 'user', text: userText });
     showTyping();
 
+    let reply;
     try {
-      const botReply = await callGemini();
-      hideTyping();
-      addMessage('bot', escapeHTML(botReply));
-
-      // Ajouter la réponse du bot dans l'historique
-      conversationHistory.push({
-        role: 'model',
-        parts: [{ text: botReply }]
-      });
-
+      reply = await callApi();
     } catch (err) {
-      hideTyping();
-      conversationHistory.pop(); // évite deux tours "user" consécutifs au prochain envoi
-      addMessage('bot', 'Désolée, je rencontre un problème technique. Appelez-nous directement au <strong>01 23 45 67 89</strong> !');
-      console.error('Erreur Gemini :', err);
+      console.warn('Chatbot : API indisponible, réponse locale utilisée.', err);
+      reply = localReply(userText);
     }
+
+    hideTyping();
+    addMessage('bot', formatReply(reply));
+    history.push({ role: 'model', text: reply });
 
     isWaiting = false;
     sendBtn.disabled = false;
     chatInput.focus();
   }
 
-  /* ---- Appel API Gemini avec historique complet ---- */
-  async function callGemini() {
-    const payload = {
-      system_instruction: {
-        parts: [{ text: SYSTEM_PROMPT }]
-      },
-      contents: conversationHistory,
-      generationConfig: {
-        temperature: 0.7,
-        maxOutputTokens: 300,
-      }
-    };
-
-    // Limite l'historique envoyé (les 12 derniers messages)
-    payload.contents = conversationHistory.slice(-12);
+  /* ---- Appel de la fonction serverless ---- */
+  async function callApi() {
+    if (location.protocol === 'file:') throw new Error('Ouvert en local (file://) : pas d\'API');
 
     const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 15000);
-    let response;
+    const timer = setTimeout(() => controller.abort(), 25000);
     try {
-      response = await fetch(GEMINI_URL, {
+      const r = await fetch(CHAT_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({ messages: history.slice(-12) }),
         signal: controller.signal
       });
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      const data = await r.json();
+      if (!data || !data.reply) throw new Error('Réponse vide');
+      return data.reply;
     } finally {
-      clearTimeout(timeout);
+      clearTimeout(timer);
     }
-
-    if (!response.ok) {
-      throw new Error(`HTTP ${response.status}`);
-    }
-
-    const data = await response.json();
-
-    // Extraction de la réponse
-    return data?.candidates?.[0]?.content?.parts?.[0]?.text
-      || 'Je n\'ai pas pu formuler de réponse. Pouvez-vous reformuler votre question ?';
   }
 
-  /* ---- Sécurité : échapper le HTML utilisateur ---- */
-  function escapeHTML(str) {
-    return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;');
+  /* ---- Réponses de secours (sans IA) ---- */
+  function localReply(q) {
+    const t = q.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const has = (...words) => words.some(w => t.includes(w));
+
+    if (has('horaire', 'ouvert', 'ferme', 'heure'))
+      return 'Nous sommes ouverts du mardi au vendredi de 9h à 19h, et le samedi de 9h à 18h. Fermé le dimanche et le lundi.';
+    if (has('adresse', 'ou etes', 'situe', 'metro', 'acces', 'venir'))
+      return 'Le salon est au 12 rue des Artisans, 75011 Paris. Métro Voltaire (ligne 9), à 3 minutes à pied.';
+    if (has('rdv', 'rendez', 'reserv'))
+      return 'Pour prendre rendez-vous, appelez le 01 23 45 67 89 ou utilisez le formulaire de la page Contact.';
+    if (has('tel', 'appel', 'numero', 'mail', 'email', 'contact'))
+      return 'Vous pouvez nous joindre au 01 23 45 67 89 ou par email à contact@studio-coiffure.fr.';
+    if (has('equipe', 'coiffeur', 'coiffeuse', 'sophie', 'karim', 'ines', 'amara'))
+      return 'L\'équipe : Sophie Marchand (fondatrice, coupes et colorations), Karim Benali (coupe homme, barbier), Inès Durand (coloriste, kératine) et Amara Diallo (cheveux bouclés, tresses, cérémonies).';
+    if (has('homme'))
+      return 'La coupe homme est à 20 € (shampoing + coupe, dégradé possible).';
+    if (has('femme'))
+      return 'La coupe femme est à 35 € (shampoing + coupe + coiffage).';
+    if (has('balayage'))
+      return 'Le balayage (californien, ombré, baby lights) démarre à 70 €.';
+    if (has('colo'))
+      return 'La coloration pleine démarre à 55 € (couverture des racines ou changement total).';
+    if (has('keratine', 'lissage'))
+      return 'La kératine (lissage semi-permanent, 3 à 4 mois) coûte 90 €.';
+    if (has('chignon', 'mariage', 'soiree', 'ceremonie'))
+      return 'Le chignon de soirée est à 55 € (structuré, tressé ou romantique).';
+    if (has('soin'))
+      return 'Le soin profond (nourrissant, restructurant ou hydratant) est à 30 €.';
+    if (has('prix', 'tarif', 'combien', 'cout', 'service', 'prestation'))
+      return 'Nos tarifs : coupe femme 35 €, coupe homme 20 €, balayage dès 70 €, coloration dès 55 €, kératine 90 €, chignon 55 €, soin profond 30 €.';
+    if (has('bonjour', 'salut', 'coucou', 'bonsoir', 'hello'))
+      return 'Bonjour ! Je peux vous renseigner sur nos services, tarifs, horaires ou la prise de rendez-vous.';
+    if (has('merci'))
+      return 'Avec plaisir ! N\'hésitez pas si vous avez d\'autres questions.';
+
+    return 'Je ne suis pas sûre de pouvoir répondre à cela pour le moment. Appelez-nous au 01 23 45 67 89 et l\'équipe vous renseignera avec plaisir.';
   }
 
 })();
